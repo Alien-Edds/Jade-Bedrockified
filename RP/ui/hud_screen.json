@@ -7,7 +7,7 @@
 		"size": [ "100%c + 12px", "100%c + 5px" ],
 		"anchor_from": "top_middle",
 		"anchor_to": "top_middle",
-		"texture": "textures/ui/hud_tip_text_background",
+		"texture": "textures/jade/actionbar_background",
 		"alpha": 1
 	}
 }
