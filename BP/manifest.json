@@ -1,0 +1,54 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Bedrock Jade",
+        "description": "Jade but for Bedrock Edition.",
+        "min_engine_version": [
+            1,
+            21,
+            30
+        ],
+        "uuid": "f24c9f8f-46f3-49b6-817b-8055dfb0320a",
+        "version":[
+            1,
+            0,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "684a930f-e7ac-45e4-a9aa-cc04680fe709",
+            "version":[
+                1,
+                0,
+                0
+            ]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "entry": "scripts/main.js",
+            "uuid": "cee7abce-9656-41e0-b4ea-7bcb99335b5a",
+            "version":[
+                1,
+                0,
+                0
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "1.14.0"
+        },
+        {
+            "uuid": "fa8b4f77-ae96-4dce-a808-b35df0ed321b",
+            "version":[
+                1,
+                0,
+                0
+            ]
+        }
+    ]
+}
