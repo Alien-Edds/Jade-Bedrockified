@@ -1,0 +1,13 @@
+{
+	"hud_actionbar_text": {
+		"offset": [
+			0,
+			20
+		],
+		"size": [ "100%c + 12px", "100%c + 5px" ],
+		"anchor_from": "top_middle",
+		"anchor_to": "top_middle",
+		"texture": "textures/jade/style_dark",
+		"alpha": 1
+	}
+}

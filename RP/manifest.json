@@ -35,5 +35,22 @@
                 0
             ]
         }
+    ],
+    "subpacks": [
+        {
+			"folder_name": "dark",
+			"memory_tier": 0,
+			"name": "§8Dark"
+		},
+		{
+			"folder_name": "create",
+			"memory_tier": 1,
+			"name": "§6Create"
+		},
+		{
+			"folder_name": "default",
+			"memory_tier": 2,
+			"name": "§9Default"
+		}
     ]
 }

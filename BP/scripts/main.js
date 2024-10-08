@@ -80,6 +80,35 @@ const BlockNames = {
     "jungle_planks": "planks.jungle",
     "acacia_planks": "planks.acacia",
     "dark_oak_planks": "planks.big_oak",
+    /* WOODEN SLABS */
+    "oak_slab": "wooden_slab.oak",
+    "spruce_slab": "wooden_slab.spruce",
+    "birch_slab": "wooden_slab.birch",
+    "jungle_slab": "wooden_slab.jungle",
+    "acacia_slab": "wooden_slab.acacia",
+    "dark_oak_slab": "wooden_slab.big_oak",
+    /* FENCES */
+    "oak_fence": "fence",
+    "spruce_fence": "spruceFence",
+    "birch_fence": "birchFence",
+    "acacia_fence": "acaciaFence",
+    "jungle_fence": "jungleFence",
+    "dark_oak_fence": "darkOakFence",
+    /* WALLS */
+    "cobblestone_wall": "cobblestone_wall.normal",
+    "mossy_cobblestone_wall": "cobblestone_wall.mossy",
+    "end_stone_brick_wall": "cobblestone_wall.end_brick",
+    "granite_wall": "cobblestone_wall.granite",
+    "andesite_wall": "cobblestone_wall.andesite",
+    "diorite_wall": "cobblestone_wall.diorite",
+    "prismarine_wall": "cobblestone_wall.prismarine",
+    "sandstone_wall": "cobblestone_wall.sandstone",
+    "red_sandstone_wall": "cobblestone_wall.red_sandstone",
+    "stone_brick_wall": "cobblestone_wall.stone_brick",
+    "mossy_stone_brick_wall": "cobblestone_wall.mossy_stone_brick",
+    "brick_wall": "cobblestone_wall.brick",
+    "nether_brick_wall": "cobblestone_wall.nether_brick",
+    "red_nether_brick_wall": "cobblestone_wall.red_nether_brick",
     /* CROPS */
     "pitcher_crop": "pitcher_pod",
     "torchflower_crop": "torchflower",
@@ -99,6 +128,29 @@ const BlockNames = {
     "polished_granite": "stone.graniteSmooth",
     "polished_andesite": "stone.andesiteSmooth",
     "polished_diorite": "stone.dioriteSmooth",
+    /* SANDSTONE */
+    "chiseled_sandstone": "sandstone.chiseled",
+    "cut_sandstone": "sandstone.cut",
+    "smooth_sandstone": "sandstone.smooth",
+    "chiseled_red_sandstone": "red_sandstone.chiseled",
+    "cut_red_sandstone": "red_sandstone.cut",
+    "smooth_red_sandstone": "red_sandstone.smooth",
+    /* STONE BRICKS */
+    "stone_bricks": "stonebrick.default",
+    "cracked_stone_bricks": "stonebrick.cracked",
+    "mossy_stone_bricks": "stonebrick.mossy",
+    "chiseled_stone_bricks": "stonebrick.chiseled",
+    /* STONE SLABS */
+    "cobblestone_slab": "stone_slab.cobble",
+    "normal_stone_slab": "stone_slab",
+    "smooth_stone_slab": "stone_slab.stone",
+    "mossy_cobblestone_slab": "stone_slab2.mossy_cobblestone",
+    "sandstone_slab": "stone_slab.sand",
+    "red_sandstone_slab": "stone_slab2.red_sandstone",
+    "cut_sandstone_slab": "stone_slab4.cut_sandstone",
+    "cut_red_sandstone_slab": "stone_slab4.cut_red_sandstone",
+    "smooth_sandstone_slab": "stone_slab2.sandstone.smooth",
+    "smooth_red_sandstone_slab": "stone_slab3.red_sandstone.smooth",
     /* INFESTED STONE */
     "infested_stone_bricks": "monster_egg.brick",
     "infested_cobblestone": "monster_egg.cobble",
@@ -184,6 +236,14 @@ const BlockNames = {
     /* PURPUR */
     "purpur_block": "purpur_block.default",
     "purpur_pillar": "purpur_block.lines",
+    /* PRISMARINE */
+    "dark_prismarine": "prismarine.dark",
+    "prismarine": "prismarine.rough",
+    "prismarine_bricks": "prismarine.bricks",
+    /* QUARTZ */
+    "quartz_pillar": "quartz_block.lines",
+    "chiseled_quartz_block": "quartz_block.chiseled",
+    "smooth_quartz": "quartz_block.smooth",
     /* SLABS */
     "purpur_slab": "stone_slab2.purpur",
     /* TERRACOTTA */
@@ -366,6 +426,16 @@ const BlockPrefixes = {
     "glow_frame": "item",
     "frame": "item",
     "brewing_stand": "item",
+    /* DOORS */
+    "wooden_door": "item",
+    "spruce_door": "item",
+    "jungle_door": "item",
+    "acacia_door": "item",
+    "birch_door": "item",
+    "dark_oak_door": "item",
+    "cherry_door": "item",
+    "bamboo_door": "item",
+    "mangrove_door": "item",
     /* HANGING SIGNS */
     "oak_hanging_sign": "item",
     "birch_hanging_sign": "item",
@@ -381,10 +451,12 @@ const BlockPrefixes = {
 };
 function getBlockMessage(block) {
     let text = [];
+    const split = block.typeId.split(":");
     //@ts-ignore
-    let splitId = block.typeId.split(":")[1];
+    let splitId = split[1];
     splitId = splitId.replace("double_slab", "slab");
     text.push({ rawtext: [{ translate: `${block.typeId.startsWith("minecraft:") ? BlockPrefixes[splitId] ? BlockPrefixes[splitId] : "tile" : "tile"}.${block.typeId.startsWith("minecraft:") ? BlockNames[splitId] ? BlockNames[splitId] : splitId : block.typeId}.name` }] });
+    text.push(`\n§9@${toWord(split[0].split("_"))}§r`);
     const states = block.permutation.getAllStates();
     if (!Object.keys(states)[0])
         return text;
@@ -405,6 +477,10 @@ function getHealthEmojis(current, max) {
     let hearts = "";
     let currentHealth = roundUp(current);
     let addToEnd = undefined;
+    if (max > 100 && currentHealth > 100)
+        return `§c${currentHealth}§f/§c${max}${Emojis.HeartFull}`;
+    if (max > 100 && currentHealth <= 100)
+        max = 100;
     while (currentHealth > 0) {
         if (Math.floor(currentHealth / 2) * 2 == currentHealth) {
             hearts = hearts + Emojis.HeartFull;
@@ -442,7 +518,9 @@ function getHealthEmojis(current, max) {
 }
 function getEntityMessage(entity) {
     let text = [];
-    text.push(!entity.nameTag ? { rawtext: [{ translate: `entity.${entity.typeId.startsWith("minecraft:") ? entity.typeId.split(":")[1] : entity.typeId}.name` }] } : entity.nameTag);
+    const split = entity.typeId.split(":");
+    text.push(!entity.nameTag ? { rawtext: [{ translate: `entity.${entity.typeId.startsWith("minecraft:") ? split[1] : entity.typeId}.name` }] } : entity.nameTag);
+    text.push(`\n§9@${toWord(split[0].split("_"))}§r`);
     const healthComp = entity.getComponent(EntityHealthComponent.componentId);
     if (!healthComp)
         return text;
@@ -462,3 +540,8 @@ system.runInterval(() => {
         player.onScreenDisplay.setActionBar(getBlockMessage(blockRaycast.block));
     }
 }, 2);
+world.afterEvents.entityHitEntity.subscribe((data) => {
+    if (data.damagingEntity.typeId != "minecraft:player")
+        return;
+    data.damagingEntity.onScreenDisplay.setActionBar(getEntityMessage(data.hitEntity));
+});
