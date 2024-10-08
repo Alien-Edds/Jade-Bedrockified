@@ -1,7 +1,7 @@
 {
     "format_version": 2,
     "header": {
-        "name": "Bedrock Jade",
+        "name": "Jade: Bedrockified v1.0.0 (Unofficial Jade Bedrock Port)",
         "description": "Jade but for Bedrock Edition.",
         "min_engine_version": [
             1,

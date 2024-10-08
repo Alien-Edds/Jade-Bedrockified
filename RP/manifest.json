@@ -1,7 +1,7 @@
 {
     "format_version": 2,
     "header": {
-        "name": "Bedrock Jade",
+        "name": "Jade: Bedrockified v1.0.0 (Unofficial Jade Bedrock Port)",
         "description": "Jade but for Bedrock Edition.",
         "min_engine_version": [
             1,
@@ -43,9 +43,9 @@
 			"name": "§8Dark"
 		},
 		{
-			"folder_name": "create",
+			"folder_name": "copper",
 			"memory_tier": 1,
-			"name": "§6Create"
+			"name": "§6Copper"
 		},
 		{
 			"folder_name": "default",
