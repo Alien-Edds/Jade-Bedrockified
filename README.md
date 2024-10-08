@@ -5,9 +5,14 @@
 
 ### What does this addon include?
 - This addon displays information about Blocks and Mobs that the player looks at. Such as their name, the addon they're from, block states, and entity health.
+- Themes you can choose when initially applying the pack.
 
 ### How is this different from other ports?
 - I spent the time fixing all of the block translations that others didn't. You shouldn't see any VANILLA block translation errors when using this! If you do, please report those bugs in my discord server.
+
+### Additional Information
+- This addon only works on 1.21.30 and above.
+- No experimental options required.
 
 ### LICENSE
 - This addon's code is under the MIT license!
