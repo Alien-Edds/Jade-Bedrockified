@@ -11,7 +11,7 @@
 - I spent the time fixing all of the block translations that others didn't. You shouldn't see any VANILLA block translation errors when using this! If you do, please report those bugs in my discord server.
 
 ### Additional Information
-- This addon only works on 1.21.30 and above.
+- This addon only works on 1.21.20 and above.
 - No experimental options required.
 
 ### LICENSE
