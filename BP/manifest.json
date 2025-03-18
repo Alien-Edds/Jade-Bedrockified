@@ -1,7 +1,7 @@
 {
     "format_version": 2,
     "header": {
-        "name": "Jade: Bedrockified v1.0.1 (Unofficial Jade Bedrock Port)",
+        "name": "Jade: Bedrockified v1.1.0 (Unofficial Jade Bedrock Port)",
         "description": "Jade but for Bedrock Edition.",
         "min_engine_version": [
             1,
@@ -10,7 +10,7 @@
         ],
         "uuid": "f24c9f8f-46f3-49b6-817b-8055dfb0320a",
         "version":[
-            2,
+            3,
             0,
             0
         ]
@@ -20,7 +20,7 @@
             "type": "data",
             "uuid": "684a930f-e7ac-45e4-a9aa-cc04680fe709",
             "version":[
-                2,
+                3,
                 0,
                 0
             ]
@@ -31,7 +31,7 @@
             "entry": "scripts/main.js",
             "uuid": "cee7abce-9656-41e0-b4ea-7bcb99335b5a",
             "version":[
-                2,
+                3,
                 0,
                 0
             ]
@@ -45,7 +45,7 @@
         {
             "uuid": "fa8b4f77-ae96-4dce-a808-b35df0ed321b",
             "version":[
-                2,
+                3,
                 0,
                 0
             ]
